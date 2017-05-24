@@ -962,7 +962,8 @@
      * Set the volume for the ad.
      */
     this.setAdVolume = function(volume){
-      this.adsManager.setVolume(volume);
+      if (this.adsManager && typeof this.adsManager.setVolume === 'function')
+        this.adsManager.setVolume(volume);
     }.bind(this);
 
     /**
