@@ -620,7 +620,12 @@
         // Bubble down to content player
         this.player.muted(false);
         this.adMuted = false;
-        this.sliderLevelDiv.style.width = this.player.volume() * 100 + "%";
+        var vol = this.player.volume();
+        if (vol === 0) {
+          vol = 1;
+          this.player.volume(1);
+        }
+        this.sliderLevelDiv.style.width = vol * 100 + "%";
       } else {
         addClass_(this.muteDiv, 'ima-muted');
         removeClass_(this.muteDiv, 'ima-non-muted');
