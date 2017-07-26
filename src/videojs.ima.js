@@ -616,15 +616,15 @@
       if (this.adMuted) {
         addClass_(this.muteDiv, 'ima-non-muted');
         removeClass_(this.muteDiv, 'ima-muted');
-        this.adsManager.setVolume(1);
-        // Bubble down to content player
-        this.player.muted(false);
-        this.adMuted = false;
         var vol = this.player.volume();
         if (vol === 0) {
           vol = 1;
           this.player.volume(1);
         }
+        this.adsManager.setVolume(vol);
+        // Bubble down to content player
+        this.player.muted(false);
+        this.adMuted = false;
         this.sliderLevelDiv.style.width = vol * 100 + "%";
       } else {
         addClass_(this.muteDiv, 'ima-muted');
