@@ -224,6 +224,9 @@
       if (this.settings.forceNonLinearFullSlot) {
         adsRequest.forceNonLinearFullSlot = true;
       }
+      if (this.settings.vastLoadTimeout) {
+        adsRequest.vastLoadTimeout = this.settings.vastLoadTimeout;
+      }
 
       adsRequest.linearAdSlotWidth = this.getPlayerWidth();
       adsRequest.linearAdSlotHeight = this.getPlayerHeight();
