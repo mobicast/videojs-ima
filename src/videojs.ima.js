@@ -449,6 +449,9 @@
      * @private
      */
     var onAllAdsCompleted_ = function(adEvent) {
+      if (this.adsActive && this.adPlaying) {
+        this.onContentResumeRequested_();
+      }
       this.allAdsCompleted = true;
       this.adContainerDiv.style.display = 'none';
       if (this.contentComplete == true) {
